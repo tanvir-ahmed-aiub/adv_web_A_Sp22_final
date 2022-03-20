@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\StudentAPIController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,3 +18,7 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('/student/all',[StudentAPIController::class,'getall']);
+Route::get('/student/{id}',[StudentAPIController::class,'get']);
+Route::post('/student/add',[StudentAPIController::class,'add']);
